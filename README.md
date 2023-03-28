@@ -8,8 +8,8 @@ To use the bot:
 
 1. git clone https://github.com/Nk0val/PDFDead_bot.git
 
-2. In the project directory, create two folders: downloads_pdf and splited_files (this is necessary for the correct operation of the bot, in the future the choice of directories will be available)
+2. change the value of BOT_TOKEN in settings/config.py
 
-3. change the value of BOT_TOKEN in settings/config.py
+3. Run the bot pdfdead.py
 
-4. Run the bot pdfdead.py
+p.s You can change the name of the directories that will be created while the bot is running. To do this, go to the file config.py 
