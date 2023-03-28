@@ -1,10 +1,11 @@
 import os
+from settings.config import PDF_DIR
 
 def Download_pdf(bot, message):
 
     username = message.from_user.first_name
 
-    path = f'./downloads_pdf/{username}'
+    path = f'./{PDF_DIR}/{username}'
     if not os.path.exists(path):
         os.mkdir(path)
 

@@ -1,14 +1,15 @@
 import patoolib
 import pathlib
 import os
+from settings.config import RAR_FILES_DIR, SPLITED_FILES_DIR
 
-def Create_rar(file_name,username):
+def Create_rar(username):
 
-    path = f'rar_archive/{username}'
+    path = f'{RAR_FILES_DIR}/{username}'
     if not os.path.exists(path):
         os.mkdir(path)
 
-    current_directory = pathlib.Path(f'splited_files/{username}/')
+    current_directory = pathlib.Path(f'{SPLITED_FILES_DIR}/{username}/')
     current_pattern = '*.pdf'
 
     try:

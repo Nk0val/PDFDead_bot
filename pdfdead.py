@@ -1,7 +1,10 @@
+import os
+
 from settings.config import BOT_TOKEN
 from handlers.handler_main import HandlerMain
 from telebot import TeleBot
 
+from settings.config import PDF_DIR, SPLITED_FILES_DIR, RAR_FILES_DIR
 
 class PDFDead:
 
@@ -19,5 +22,11 @@ class PDFDead:
 
 
 if __name__ == '__main__':
+
+    pathes = [f'{PDF_DIR}', f'{SPLITED_FILES_DIR}', f'{RAR_FILES_DIR}']
+    for path in pathes:
+        if not os.path.exists(path):
+            os.mkdir(path)
+
     print('Starting bot...')
     PDFDead().start()

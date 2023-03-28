@@ -3,6 +3,7 @@ from services.download_pdf import Download_pdf
 from services.pdf_spliter import Split
 from services.create_rar import  Create_rar
 from settings.utils import Clear_all
+from settings.config import PDF_DIR, RAR_FILES_DIR
 
 class HandlerSplit(Handler):
 
@@ -24,15 +25,15 @@ class HandlerSplit(Handler):
 
                     self.bot.send_message(message.chat.id, "Started splitting your file!")
 
-                    file_path = f'./downloads_pdf/{username}/{self.file_name}_by_{message.from_user.first_name}.pdf'
+                    file_path = f'./{PDF_DIR}/{username}/{self.file_name}_by_{message.from_user.first_name}.pdf'
 
                     status_text, status_code = Split(file_path, self.file_name, int(message1.text), username)
                     self.bot.send_message(message1.chat.id, status_text)
 
-                    status_text = Create_rar(self.file_name, username)
+                    status_text = Create_rar(username)
                     self.bot.send_message(message1.chat.id, status_text)
 
-                    self.bot.send_document(message1.chat.id, open(f'rar_archive/{username}/{username}.rar', 'rb'))
+                    self.bot.send_document(message1.chat.id, open(f'{RAR_FILES_DIR}/{username}/{username}.rar', 'rb'))
                     self.bot.send_message(message1.chat.id, "You're splitted pdf!")
 
                     Clear_all(username)
